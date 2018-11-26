@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+        <h1>Fill up your Details</h1>
+<head>
+    <script type="text/javascript">
+    </script>
+    
+</head>
+
+<body>
+
+    <form (ngSubmit)="save()" #frm="ngForm">
+
+        <div class="jumbotron container" style="margin-top:2px">
+            <div style="text-align: center;font-family:'Courier New', Courier, monospace">
+                <h2>Personal Details</h2>
+            </div>
+            <div class="form group">
+                <label for="AaadharId">Aadhar_Id</label>
+                <input type="text" name="id" class="form-control" [(ngModel)]="personal.id" maxlength=12 minlength=12
+                    required pattern="[0-9]*" placeholder="Please Enter number only">
+            </div>
+            <!-- <div *ngIf="id.errors?.required">
+                    <div *ngIf="id?.touched" class="alert alert-danger">
+                        AadharID is Required
+                    </div>
+                  </div>
+                  <div *ngIf="id.errors?.pattern">
+                    <div *ngIf="id?.touched" class="alert alert-danger">
+                      AadharID invalid
+                    </div>
+                  </div> -->
+            <div class="form group">
+                <label for="Name">Name</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="personal.name">
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-success" name="button" (click)="save()" [disabled]="frm.invalid">save</button>
+            </div>
+        </div>
+
+    </form>
+    <br /><br />
+
+    <form (ngSubmit)="saveEducation()" #form="ngForm">
+
+        <div class="jumbotron container" style="margin-top:2px">
+            <div style="text-align: center;font-family:'Courier New', Courier, monospace">
+                <h2>Education Details</h2>
+            </div>
+            <div class="form group">
+                <label for="Cgpa">Percentage</label>
+                <input type="text" name="cgpa" class="form-control" [(ngModel)]="education.cgpa" maxlength=3 minlength=2
+                    required pattern="[0-9]*" placeholder="Please Enter number only">
+            </div>
+            <div class="form group">
+                <label for="Qualification">Qualification</label>
+                <input type="text" name="qualification" class="form-control" [(ngModel)]="education.qualification">
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-success" name="button" (click)="saveEducation()" [disabled]="form.invalid">save</button>
+            </div>
+        </div>
+    </form>
+
+    <!--  <popup>
+        Data Saved successfully!!
+    </popup>
+    -->
+
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="fullSubmit()" [disabled]="buttonStatus == 'enabled'">submit</button>
+</body>
+
+
+</html>
+<!--<div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newCustomer()">Add</button>
+      </div>
+    -->
